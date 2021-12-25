@@ -5,18 +5,30 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 
 from selenium_wework.selenium_wework_main.page.addmember import AddMember
+from selenium_wework.selenium_wework_main.page.basepage import BasePage
 
 
-class Main:
-    def __init__(self):
-        options = Options()
-        options.debugger_address = "127.0.0.1:9333"
-        self._driver = webdriver.Chrome(options=options)
-        self._driver.get("https://work.weixin.qq.com/wework_admin/frame#index")
+# Main继承PageBase，在被实例化时，会自动执行父类中的构造方法
+# 既__init__方法，实现初始化driver的功能
+class Main(BasePage):
+    _base_url = "https://work.weixin.qq.com/wework_admin/frame#index"
+    # def __init__(self):
+    #     options = Options()
+    #     options.debugger_address = "127.0.0.1:9333"
+    #     self._driver = webdriver.Chrome(options=options)
+    #     self._driver.get("https://work.weixin.qq.com/wework_admin/frame#index")
 
     def goto_add_member(self):
+        """
+        写了2个添加成员入口的方法
+        :return:
+        """
         sleep(2)
-        self._driver.find_element(By.CSS_SELECTOR, ".index_service_cnt_itemWrap[node-type='addmember']").click()
+        # 首页下发的添加成员入口
+        # self._driver.find_element(By.CSS_SELECTOR, ".index_service_cnt_itemWrap[node-type='addmember']").click()
+        # 首页上方通讯录-添加成员入口
+        # 封装self._driver.find_element， 调用父类的函数用----self.函数名
+        self.find(By.CSS_SELECTOR, '#menu_contacts').click()
+        sleep(2)
+        self.find(By.CSS_SELECTOR, '.js_has_member>div:nth-child(1) a:nth-child(2)').click()
         return AddMember(self._driver)
-
-
