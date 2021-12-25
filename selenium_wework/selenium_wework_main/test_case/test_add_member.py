@@ -10,3 +10,6 @@ class Test_AddMember:
         add_member.add_member()
         members = add_member.get_members()
         assert 'test' in members
+
+    def teardown(self):
+        pass
