@@ -22,12 +22,6 @@ class AddMember(BasePage):
         self.find(By.ID, "memberAdd_phone").send_keys("12345678901")
         self.find(By.CSS_SELECTOR, ".js_btn_save").click()
 
-    def del_member(self):
-        names = self.finds(By.CSS_SELECTOR, '.member_colRight_memberTable_tr')
-        for name in names:
-            if name.find_element(By.CSS_SELECTOR, 'td:nth-child(2)').get_attribute('title') == 'test':
-                name.find_element(By.CSS_SELECTOR, 'td:nth-child(1)').click()
-                self.find(By.CSS_SELECTOR, '.js_delete').click()
 
     def get_members(self):
         sleep(2)

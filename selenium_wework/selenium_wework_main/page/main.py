@@ -12,6 +12,9 @@ from selenium_wework.selenium_wework_main.page.basepage import BasePage
 
 # Main继承PageBase，在被实例化时，会自动执行父类中的构造方法
 # 既__init__方法，实现初始化driver的功能
+from selenium_wework.selenium_wework_main.page.delmember import DelMember
+
+
 class Main(BasePage):
     _base_url = "https://work.weixin.qq.com/wework_admin/frame"
     # def __init__(self):
@@ -34,3 +37,12 @@ class Main(BasePage):
         self.wait_to_click(10, (By.CSS_SELECTOR, '.js_has_member>div:nth-child(1)>a:nth-child(2)'))
         self.find(By.CSS_SELECTOR, '.js_has_member>div:nth-child(1)>a:nth-child(2)').click()
         return AddMember(self._driver)
+
+    def goto_del_member(self):
+        """
+        进入通讯录tab页，选择记录，删除
+        :return: 调用DelMember函数
+        """
+        self.find(By.CSS_SELECTOR, '#menu_contacts>.frame_nav_item_title').click()
+        self.wait_to_click(10, (By.CSS_SELECTOR, '.ww_checkbox'))
+        return DelMember(self._driver)
