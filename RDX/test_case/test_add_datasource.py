@@ -1,7 +1,6 @@
 import pytest
 
-from RDX.login import Login
-from index import Index
+from RDX.page.login import Login
 
 
 class Test_add_datasource:
@@ -15,7 +14,8 @@ class Test_add_datasource:
         self.login.login().goto_datasource().add_mysql_source()
 
     def test_get_datasource(self):
-        self.login.login().goto_datasource().get_datasource('kafka_dnntest')
+        # self.login.login().goto_datasource().get_datasource('kafka_dnntest')
+        self.login.login().goto_datasource()
 
     def teardown(self):
         self.login.logout()

@@ -1,0 +1,50 @@
+add_source:
+  - by: css selector
+    locator: ".ant-btn-primary"
+    action: click
+  - by: id
+    locator: "base_name"
+    action: send
+    value: "test_autoui"
+  - by: id
+    locator: "datasourceType"
+    action: click
+  - by: css selector
+    locator: '.ant-select-dropdown-menu-vertical li'
+    action: finds
+    value: mysql
+  - by: id
+    locator: "datasourceVersion"
+    action: click
+  - by: css selector
+    locator: '.ant-select-dropdown-menu-vertical li'
+    action: finds
+    value: "v8"
+  - by: css selector
+    locator: '.ant-checkbox-input'
+    action: finds
+    value: "isEnableApiSource"
+  - by: css selector
+    locator: ".ant-modal-footer .ant-btn-primary"
+    action: click
+  - by: id
+    locator: "url"
+    action: send
+    value: "jdbc:mysql://172.20.3.43:3307/dataportal"
+  - by: id
+    locator: "username"
+    action: send
+    value: "dcuser"
+  - by: id
+    locator: "password"
+    action: send
+    value: "DataCanvas!23"
+  - by: xpath
+    locator: '//div[contains(@class,"ant-modal-footer")]/div/button[1]'
+    action: click
+  - by: xpath
+    locator: '//div[contains(@class,"ant-modal-footer")]/div/button[3]'
+    action: click
+
+
+

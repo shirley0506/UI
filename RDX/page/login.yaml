@@ -1,0 +1,12 @@
+login:
+  - by: id
+    locator: "name"
+    action: send
+    value: "admin"
+  - by: id
+    locator: "password"
+    action: send
+    value: "123123"
+  - by: "css selector"
+    locator: ".login-submit-btn"
+    action: click

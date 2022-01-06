@@ -1,0 +1,18 @@
+goto_datasource:
+  - by: "css selector"
+    locator: ".ant-dropdown-trigger>a"
+    action: finds
+    value: '数据资产'
+    subaction: move
+  - by: "css selector"
+    locator: ".ant-dropdown-menu-item>a"
+    action: finds
+    value: '数据源资产'
+goto_dataportal:
+  - by: "link text"
+    locator: "数据服务"
+    action: click
+goto_datahub:
+  - by: "css selector"
+    locator: ".index_top_operation_loginBtn"
+    action: click

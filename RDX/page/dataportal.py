@@ -3,10 +3,10 @@
 from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.common.by import By
 
+from basepage import BasePage
 
-class Dataportal:
-    def __init__(self, driver: WebDriver):
-        self._driver = driver
+
+class Dataportal(BasePage):
 
     def add_Project(self, projectName, description):
         self._driver.find_element(By.CSS_SELECTOR, ".anticon-plus").click()
